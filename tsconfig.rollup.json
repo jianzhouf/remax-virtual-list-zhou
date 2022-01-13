@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true, 
+    "declarationDir": "lib/", 
+    "jsx": "react",
+    "rootDir": "src",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["DOM", "ES2015"]
+  },
+  "include": ["src/components/VirtualList/*"]
+}

@@ -1,24 +1,37 @@
 {
   "name": "remax-virtual-list-zhou",
-  "private": true,
-  "version": "1.0.0",
-  "description": "Remax Project With TypeScript",
-  "main": "index.js",
-  "keywords": [],
+  "version": "1.0.1",
+  "description": "remax virtual list",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "types": "./lib/components/VirtualList/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "remax",
+    "react",
+    "wechat",
+    "virtual list"
+  ],
   "author": "jianzhouf",
   "license": "MIT",
   "scripts": {
     "dev": "remax build -w -t",
-    "build": "cross-env NODE_ENV=production remax build -t"
-  },
-  "dependencies": {
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "remax": "^2.9.1"
+    "build": "cross-env NODE_ENV=production remax build -t",
+    "pack": "rollup --config ./rollup.config.js"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
     "@types/react": "^16.14.2",
-    "typescript": "^4.1.2"
+    "cross-env": "^7.0.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "remax": "^2.9.1",
+    "rollup": "^2.63.0",
+    "rollup-plugin-typescript2": "^0.31.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4"
   }
 }
