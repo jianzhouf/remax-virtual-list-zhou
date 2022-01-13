@@ -1,6 +1,6 @@
 {
   "name": "remax-virtual-list-zhou",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "remax virtual list",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
