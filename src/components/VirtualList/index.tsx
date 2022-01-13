@@ -50,7 +50,7 @@ const VirtualList = forwardRef<any, VirtualListProps>(
     const [visibleStart, setVisibleStart] = useState(0);
     const { start, end } = useMemo(
       () => ({
-        start: visibleStart - overscanCount,
+        start: Math.max(visibleStart - overscanCount, 0),
         end: visibleStart + 2 * overscanCount,
       }),
       [visibleStart]
