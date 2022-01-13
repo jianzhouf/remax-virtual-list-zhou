@@ -131,7 +131,11 @@ const VirtualList = forwardRef<any, VirtualListProps>(
               top: (start > 0 ? start : 0) * itemHeightPx + "PX",
             }}
           >
-            {visibleData.map(renderItem)}
+            {visibleData.map((item, index) => (
+              <View style={{ height: `${itemHeightPx}PX` }} key={start + index}>
+                {renderItem(item, index)}
+              </View>
+            ))}
           </View>
         </View>
         {/* after */}
