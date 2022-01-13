@@ -1,5 +1,6 @@
 import React from "react";
 export interface VirtualListProps {
+    windowWidth: number;
     data: any[];
     renderItem: (item: any, index: number) => React.ReactNode;
     itemHeight?: number;
@@ -10,7 +11,6 @@ export interface VirtualListProps {
     renderHeader?: () => React.ReactNode;
     renderBottom?: () => React.ReactNode;
     placeholderImage?: string;
-    windowWidth?: number;
 }
 export interface VirtualListMethods {
     onScroll(event: any): void;

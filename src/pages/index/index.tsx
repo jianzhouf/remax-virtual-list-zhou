@@ -53,15 +53,15 @@ export default () => {
         style={{ height: "100vh" }}
         scrollY
         onScroll={handleScroll}
-        lowerThreshold={1050}
+        lowerThreshold={350}
         id="scroll-view"
       >
         <VirtualList
           scrollViewHeightPx={scrollViewHeightPx}
           windowWidth={systemInfo.windowWidth}
+          placeholderImage="https://sl-online-oss.shulidata.com/jiyang/wechat/placeImage.png"
           ref={ref}
           data={data}
-          placeholderImage="https://gw.alicdn.com/tfs/TB18fUJCxD1gK0jSZFyXXciOVXa-750-656.png"
           itemHeight={300}
           renderItem={(item, index) => (
             <View key={item.text} style={{ height: 300 }}>

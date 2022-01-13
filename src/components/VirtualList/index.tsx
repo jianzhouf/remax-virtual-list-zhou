@@ -10,6 +10,7 @@ import { View } from "remax/one";
 import { throttle, transformRpxToPx } from "./util";
 
 export interface VirtualListProps {
+  windowWidth: number;
   data: any[];
   renderItem: (item: any, index: number) => React.ReactNode;
   itemHeight?: number;
@@ -22,7 +23,6 @@ export interface VirtualListProps {
   renderHeader?: () => React.ReactNode;
   renderBottom?: () => React.ReactNode;
   placeholderImage?: string;
-  windowWidth?: number;
 }
 
 export interface VirtualListMethods {
@@ -69,7 +69,11 @@ const VirtualList = forwardRef<any, VirtualListProps>(
     const handleScroll = useMemo(
       () =>
         throttle((event: any) => {
-          const { scrollTop } = event.detail;
+          let { scrollTop, scrollHeight } = event.detail;
+          const min = 0,
+            max = scrollHeight - (scrollViewHeightPx || 0);
+          scrollTop = Math.max(Math.min(scrollTop, max), min);
+
           const newVisibleStart = Math.ceil(
             (scrollTop - headerHeightPx) / itemHeightPx
           );
@@ -108,12 +112,7 @@ const VirtualList = forwardRef<any, VirtualListProps>(
       <View>
         {/* before */}
         {renderHeader && (
-          <View
-            className="recycle-view-header"
-            style={{ height: headerHeight }}
-          >
-            {renderHeader()}
-          </View>
+          <View style={{ height: headerHeight }}>{renderHeader()}</View>
         )}
         <View
           style={{
@@ -121,7 +120,7 @@ const VirtualList = forwardRef<any, VirtualListProps>(
             height: data.length * itemHeightPx + "PX",
             background:
               placeholderImage && `url("${placeholderImage}") repeat-y`,
-            backgroundSize: placeholderImage && "contain",
+            backgroundSize: placeholderImage && `100% ${itemHeightPx}PX`,
           }}
         >
           <View
