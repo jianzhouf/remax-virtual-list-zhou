@@ -8,6 +8,14 @@
   "files": [
     "lib"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jianzhouf/remax-virtual-list-zhou"
+  },
+  "bugs": {
+    "url": "https://github.com/jianzhouf/remax-virtual-list-zhou/issues"
+  },
+  "homepage": "https://github.com/jianzhouf/remax-virtual-list-zhou/blob/master/README.md",
   "keywords": [
     "remax",
     "react",
